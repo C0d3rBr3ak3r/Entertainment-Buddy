@@ -17,7 +17,9 @@ def add_book():
         session.commit()
         print(f"Book '{title}' added successfully!")
     except KeyError:
-        print("Invalid status. Please enter 'Read', 'Reading', or 'Plan to read'.")
+        print(f"{cross} Invalid status. Please enter 'Read', 'Reading', or 'Plan to read'.")
+        print("Please Retry !")
+        add_book()
     except Exception as e:
         print(f"Error: {e}")
 
@@ -33,7 +35,9 @@ def add_movie():
         session.commit()
         print(f"Movie '{title}' added successfully!")
     except KeyError:
-        print("Invalid status. Please enter 'Watched', 'Watching', or 'Plan to watch'.")
+        print(f"{cross} Invalid status. Please enter 'Watched', 'Watching', or 'Plan to watch'.")
+        print("Please Retry !")
+        add_movie()
     except Exception as e:
         print(f"Error: {e}")
 def add_tvshow():
@@ -48,7 +52,9 @@ def add_tvshow():
         session.commit()
         print(f"Movie '{title}' added successfully!")
     except KeyError:
-        print("Invalid status. Please enter 'Watch', 'Watching', or 'Plan to Watch'.")
+        print(f"{cross} Invalid status. Please enter 'Watch', 'Watching', or 'Plan to Watch'.")
+        print("Please Retry !")
+        add_tvshow()
     except Exception as e:
         print(f"Error: {e}")
 def add_media():
@@ -61,7 +67,7 @@ What would you like to add{question_mark}
 3. TV Show
 4. Return to main menu
 """)
-    choice=int(input("Enter choice (1-3): "))
+    choice=(input("Enter choice (1-3): "))
     if choice==1:
         add_book()
     elif choice==2:
@@ -79,7 +85,41 @@ What would you like to add{question_mark}
     else:
         main_menu()
 
+def view_media():
+    print(logo)
+    print(f"""
+How would you like to view items {question_mark}
+1. Plan to watch/read
+2. Watching/Reading
+3. Watched/Read
+4. Books
+5. Movies and TV shows
+""")
+    choice=(input("Enter your choice"))
+    if choice==1:
+        view_plan_to()
+    elif choice==2:
+        view_watching_reading
+    elif choice==3:
+        view_watched_read()
+    elif choice==4:
+        view_books()
+    elif choice==5:
+        view_movie_tv()
+    else:
+        print(f"{cross} Invalid input , Please try again ")
+        view_media()
 
+def view_movie_tv():
+    return
+
+def view_plan_to():
+    return
+def view_watched_read():
+    return
+def view_watching_reading():
+    return
+        
 def view_books():
     books = session.query(Book).all()
     clear()
@@ -89,14 +129,13 @@ def view_books():
         for book in books:
             print(f"ID: {book.id}, Title: {book.title}, Author: {book.author}, Status: {book.status.value}")
     else:
-        print("No books found.")
+        print(f"No books found.")
 
     choice= input("Press enter to go back")
     if choice=='':
         main_menu()
     else:
         view_books()
-
 def main_menu():
     while True:
         
