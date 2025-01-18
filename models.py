@@ -14,12 +14,12 @@ session = Session()
 class BookStatus(enum.Enum):
     Read = "Read"
     Reading = "Reading"
-    Plan_to_read = "Plan to Read"
+    Plan_to_read = "Plan to read"
 
 class WatchStatus(enum.Enum):
     Watched = "Watched"
     Watching = "Watching"
-    Plan_to_watch = "Plan to Watch"
+    Plan_to_watch = "Plan to watch"
 
 # Models
 class Book(Base):
