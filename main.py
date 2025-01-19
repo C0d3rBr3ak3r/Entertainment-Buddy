@@ -68,13 +68,13 @@ What would you like to add{question_mark}
 4. Return to main menu
 """)
     choice=(input("Enter choice (1-3): "))
-    if choice==1:
+    if choice=='1':
         add_book()
-    elif choice==2:
+    elif choice=='2':
         add_movie()
-    elif choice==3:
+    elif choice=='3':
         add_tvshow()
-    elif choice==4:
+    elif choice=='4':
         main_menu()
     else:
         print("Invalid Choice")
@@ -86,6 +86,7 @@ What would you like to add{question_mark}
         main_menu()
 
 def view_media():
+    clear()
     print(logo)
     print(f"""
 How would you like to view items {question_mark}
@@ -94,31 +95,125 @@ How would you like to view items {question_mark}
 3. Watched/Read
 4. Books
 5. Movies and TV shows
+6. Exit to main menu
 """)
-    choice=(input("Enter your choice"))
-    if choice==1:
+    choice=input("Enter your choice: ")
+    if choice=='1':
         view_plan_to()
-    elif choice==2:
+    elif choice=='2':
         view_watching_reading
-    elif choice==3:
+    elif choice=='3':
         view_watched_read()
-    elif choice==4:
+    elif choice=='4':
         view_books()
-    elif choice==5:
+    elif choice=='5':
         view_movie_tv()
+    elif choice=='6':
+        main_menu()
     else:
         print(f"{cross} Invalid input , Please try again ")
         view_media()
 
 def view_movie_tv():
-    return
+    movies = session.query(Movie).all()
+    tv_shows=session.query(TVShow).all()
+    clear()
+    print(logo)
+    if movies:
+        print("\n--- All Movies ---")
+        for movie in movies:
+            print(f"ID: {movie.id}, Title: {movie.title}, Director: {movie.director}, Status: {movie.status.value}")
+    else:
+        print(f"No Movies found.")
+
+    if tv_shows:
+        print("\n--- All TV Shows ---")
+        for tv_show in tv_shows:
+            print(f"ID: {tv_show.id}, Title: {tv_show.title}, Director: {tv_show.director}, Status: {tv_show.status.value}")
+    else:
+        print(f"No TV shows found.")
+
+    choice= input("Press enter to go back")
+    if choice=='':
+        view_media()
+    else:
+        view_movie_tv()
 
 def view_plan_to():
-    return
+    to_read=session.query(Book).filter(Book.status==BookStatus.Plan_to_read).all()
+    to_watch=session.query(Movie).filter(Movie.status==WatchStatus.Plan_to_watch)
+    to_watch+=session.query(TVShow).filter(TVShow.status==WatchStatus.Plan_to_watch)
+    clear()
+    print(logo)
+    if to_read:
+        print("----------PLAN TO READ-----------")
+        for book in to_read:
+            print(f"ID: {book.id}, Title: {book.title}, Author: {book.author}, Status: {book.status.value}")
+    else:
+        print("No books to read")
+    
+    if to_watch:
+        print("----------PLAN TO WATCH-----------")
+        for media in to_watch:
+            print(f"ID: {media.id}, Title: {media.title}, Director: {media.director}, Status: {media.status.value}")
+    else:
+        print("No media to watch")
+
+    choice= input("Press enter to go back")
+    if choice=='':
+        view_media()
+    else:
+        view_books()
 def view_watched_read():
-    return
+    read=session.query(Book).filter(Book.status==BookStatus.Read).all()
+    watched=session.query(Movie).filter(Movie.status==WatchStatus.Watched).all()
+    watched+=session.query(TVShow).filter(TVShow.status==WatchStatus.Watched).all()
+    clear()
+    print(logo)
+    if read:
+        print("----------READ-----------")
+        for book in read:
+            print(f"ID: {book.id}, Title: {book.title}, Author: {book.author}, Status: {book.status.value}")
+    else:
+        print("No books read")
+    
+    if watched:
+        print("----------WATCHED-----------")
+        for media in watched:
+            print(f"ID: {media.id}, Title: {media.title}, Director: {media.director}, Status: {media.status.value}")
+    else:
+        print("No media watched")
+
+    choice= input("Press enter to go back")
+    if choice=='':
+        view_media()
+    else:
+        view_books()
 def view_watching_reading():
-    return
+    reading=session.query(Book).filter(Book.status==BookStatus.Reading).all()
+    watching=session.query(Movie).filter(Movie.status==WatchStatus.Watching).all()
+    watching+=session.query(TVShow).filter(TVShow.status==WatchStatus.Watching).all()
+    clear()
+    print(logo)
+    if reading:
+        print("----------READING-----------")
+        for book in reading:
+            print(f"ID: {book.id}, Title: {book.title}, Author: {book.author}, Status: {book.status.value}")
+    else:
+        print("No books reading")
+    
+    if watching:
+        print("----------WATCHING-----------")
+        for media in watching:
+            print(f"ID: {media.id}, Title: {media.title}, Director: {media.director}, Status: {media.status.value}")
+    else:
+        print("No media watching")
+
+    choice= input("Press enter to go back")
+    if choice=='':
+        view_media()
+    else:
+        view_books()
         
 def view_books():
     books = session.query(Book).all()
@@ -148,7 +243,7 @@ def main_menu():
         if choice == "1":
             add_media()
         elif choice == "2":
-            view_books()
+            view_media()
         elif choice == "3":
             print("Goodbye!")
             break
