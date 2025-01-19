@@ -2,9 +2,22 @@ from models import session, Book, Movie, TVShow, BookStatus, WatchStatus
 from constants import *
 import os
 from search import *
+from recommendations import *
 
 def clear():
     os.system('cls')
+
+
+def recommend():
+    clear()
+    print(logo)
+    print(f"""
+What do you need recommendations for {question_mark}
+1. Movies
+2. TV shows
+3. Books
+4. Recommendations based on some specific titles
+""")
 
 def search():
     clear()

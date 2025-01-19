@@ -1,8 +1,8 @@
 import requests
-
+from APIs import TMDB_API_KEY,GOOGLE_BOOKS_API_KEY
 # API Keys
-TMDB_API_KEY = "fd0e53fdf7441eff0562a073432e28d8"  
-GOOGLE_BOOKS_API_KEY = "AIzaSyDm_CX8sctKOjNCNeFdaVQLqKGI-cm3n80"  
+TMDB_API_KEY = TMDB_API_KEY
+GOOGLE_BOOKS_API_KEY = GOOGLE_BOOKS_API_KEY  
 
 # Base URLs for APIs
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
