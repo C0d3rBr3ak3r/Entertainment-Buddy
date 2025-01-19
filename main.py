@@ -4,10 +4,10 @@ import os
 from search import *
 from recommendations import *
 from upcoming import display_upcoming_releases
+from surprise import surprise_me
 
 def clear():
     os.system('cls')
-
 
 def recommend():
     clear()
@@ -21,7 +21,7 @@ What do you need recommendations for {question_mark}
 5. Surprise me
 6. Exit
 """)
-    choice=input("Enter your choice")
+    choice=input("Enter your choice: ")
     if choice=='1':
         print(get_movie_recommendations())
     elif choice=='2':
@@ -31,7 +31,7 @@ What do you need recommendations for {question_mark}
     elif choice=='4':
         print(get_specific_recommendations())
     elif choice=='5':
-        pass
+        print(surprise_me())
     elif choice=='6':
         main_menu()
     else:
@@ -138,7 +138,7 @@ What would you like to add{question_mark}
 3. TV Show
 4. Return to main menu
 """)
-    choice=(input("Enter choice (1-3): "))
+    choice=(input("Enter choice (1-4): "))
     if choice=='1':
         add_book()
     elif choice=='2':
