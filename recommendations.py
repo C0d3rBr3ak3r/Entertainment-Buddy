@@ -43,7 +43,7 @@ def get_tv_show_recommendations():
 
 def get_specific_recommendations():
     media_type=input("Enter the media type for recommendations: ")
-    user_input=input("Enter the titles related to which you need recommendations: ")
+    user_input=input("Enter the titles(or genre) related to which you need recommendations: ")
     return get_recommendations(user_input,media_type)
 
 if __name__=="__main__":

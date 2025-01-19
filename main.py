@@ -3,6 +3,7 @@ from constants import *
 import os
 from search import *
 from recommendations import *
+from upcoming import display_upcoming_releases
 
 def clear():
     os.system('cls')
@@ -17,7 +18,8 @@ What do you need recommendations for {question_mark}
 2. TV shows
 3. Books
 4. Recommendations based on some specific titles
-5. Exit
+5. Surprise me
+6. Exit
 """)
     choice=input("Enter your choice")
     if choice=='1':
@@ -29,6 +31,8 @@ What do you need recommendations for {question_mark}
     elif choice=='4':
         print(get_specific_recommendations())
     elif choice=='5':
+        pass
+    elif choice=='6':
         main_menu()
     else:
         print(f"{cross} Invalid Choice, Please Try again")
@@ -308,15 +312,16 @@ def view_books():
     else:
         view_books()
 def main_menu():
+    clear()
     while True:
-        
         print(logo)
         print("""
 1. Add Media
 2. View Media
 3. Search for something
 4. Recommendations
-5. Exit
+5. Latest or Upcoming Releases
+6. Exit
 """)
         choice = input("Enter your choice: ")
 
@@ -328,7 +333,9 @@ def main_menu():
             search()
         elif choice=='4':
             recommend()
-        elif choice == "5":
+        elif choice=='5':
+            display_upcoming_releases()
+        elif choice == "6":
             print("Goodbye!")
             exit()
         else:
