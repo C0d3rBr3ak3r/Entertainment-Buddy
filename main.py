@@ -17,7 +17,32 @@ What do you need recommendations for {question_mark}
 2. TV shows
 3. Books
 4. Recommendations based on some specific titles
+5. Exit
 """)
+    choice=input("Enter your choice")
+    if choice=='1':
+        print(get_movie_recommendations())
+    elif choice=='2':
+        print(get_tv_show_recommendations())
+    elif choice=='3':
+        print(get_book_recommendations())
+    elif choice=='4':
+        print(get_specific_recommendations())
+    elif choice=='5':
+        main_menu()
+    else:
+        print(f"{cross} Invalid Choice, Please Try again")
+        recommend()
+    
+    while True:
+        choice=input("Press enter to exit: ")
+        if choice=="":
+            break
+        else:
+            continue
+
+
+
 
 def search():
     clear()
@@ -290,7 +315,8 @@ def main_menu():
 1. Add Media
 2. View Media
 3. Search for something
-4. Exit
+4. Recommendations
+5. Exit
 """)
         choice = input("Enter your choice: ")
 
@@ -300,7 +326,9 @@ def main_menu():
             view_media()
         elif choice=='3':
             search()
-        elif choice == "4":
+        elif choice=='4':
+            recommend()
+        elif choice == "5":
             print("Goodbye!")
             exit()
         else:
