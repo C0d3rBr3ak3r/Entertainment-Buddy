@@ -5,7 +5,7 @@ import enum
 
 # Database setup
 DATABASE_URL = "sqlite:///entertainment_buddy.db"
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL, echo=False)
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
