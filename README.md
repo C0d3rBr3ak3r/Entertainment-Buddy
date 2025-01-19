@@ -4,6 +4,8 @@ Entertainment Buddy is a simple and intuitive app designed to help you organize 
 Requirements: (pip install)
 1. flask
 2. flask_sqlalchemy
+3. openai
+4. requests
 
 
 

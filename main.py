@@ -1,9 +1,38 @@
 from models import session, Book, Movie, TVShow, BookStatus, WatchStatus
 from constants import *
 import os
+from search import *
 
 def clear():
     os.system('cls')
+
+def search():
+    clear()
+    print(logo)
+    print("Welcome to the Media Search!")
+    media_type = input("Search for (movie/tv/book): ").strip().lower()
+    query = input("Enter the name of the media: ").strip()
+
+    if media_type in ["movie", "tv"]:
+        results = search_movies_or_tv(query, media_type)
+    elif media_type == "book":
+        results = search_books(query)
+    else:
+        print("Invalid media type. Please choose 'movie', 'tv', or 'book'.")
+        search()
+
+    # Limit to top 5 results
+    top_results = results[:5]
+    display_results(top_results, media_type)
+
+    while True:
+        choice=input("Press enter to exit: ")
+        if choice=="":
+            main_menu()
+        else:
+            print(f"{cross}")
+            continue
+
 
 def add_book():
     title = input("Enter book title: ")
@@ -244,18 +273,23 @@ def main_menu():
     while True:
         
         print(logo)
-        print("1. Add Media")
-        print("2. View Media")
-        print("3. Exit")
+        print("""
+1. Add Media
+2. View Media
+3. Search for something
+4. Exit
+""")
         choice = input("Enter your choice: ")
 
         if choice == "1":
             add_media()
         elif choice == "2":
             view_media()
-        elif choice == "3":
+        elif choice=='3':
+            search()
+        elif choice == "4":
             print("Goodbye!")
-            break
+            exit()
         else:
             print("Invalid choice. Please try again.")
 
