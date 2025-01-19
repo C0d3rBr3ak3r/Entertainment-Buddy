@@ -33,13 +33,14 @@ class Movie(Base):
     __tablename__ = "movies"
     id = Column(Integer, primary_key=True)
     title = Column(String(150), unique=True, nullable=False)
-    director = Column(String(150))
+    director = Column(String(150),nullable=True)
     status = Column(Enum(WatchStatus), nullable=False)
 
 class TVShow(Base):
     __tablename__ = "tvshows"
     id = Column(Integer, primary_key=True)
     title = Column(String(150), unique=True, nullable=False)
+    director = Column(String(150),nullable=True)
     status = Column(Enum(WatchStatus), nullable=False)
 
 # Create tables
