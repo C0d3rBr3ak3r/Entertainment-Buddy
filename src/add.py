@@ -1,6 +1,14 @@
 from models import *
 from main import session
 from constants import *
+import sqlite3
+
+def check_empty(user_input):
+    if user_input=="":
+        print("Field cannot be empty, try again")
+        return False
+    return True
+
 
 def add_book():
     """
@@ -13,6 +21,8 @@ def add_book():
     The valid statuses for the book are 'Read', 'Reading', and 'Plan to Read'.
     """
     title = input("Enter book title: ")
+    if not check_empty(title):
+        add_book()
     author = input("Enter author: ")
     status = input("Enter status (Read/Reading/Plan to Read): ")
 
@@ -40,6 +50,8 @@ def add_movie():
     The valid statuses for the movie are 'Watched', 'Watching', and 'Plan to Watch'.
     """
     title = input("Enter Movie title: ")
+    if not check_empty(title):
+        add_movie()
     director = input("Enter director: ")
     status = input("Enter status (Watched/Watching/Plan to Watch): ")
 
@@ -66,7 +78,9 @@ def add_tvshow():
 
     The valid statuses for the TV show are 'Watched', 'Watching', and 'Plan to Watch'.
     """
-    title = input("Enter Movie title: ")
+    title = input("Enter TV Show title: ")
+    if not check_empty(title):
+        add_tvshow()
     director = input("Enter director: ")
     status = input("Enter status (Watched/Watching/Plan to Watch): ")
 

@@ -53,7 +53,7 @@ class Book(Base):
     __tablename__ = "books"
     id = Column(Integer, primary_key=True)
     title = Column(String(150), unique=True, nullable=False)
-    author = Column(String(150))
+    author = Column(String(150), default="Unknown",nullable=True)
     status = Column(Enum(BookStatus), nullable=False)
 
 
@@ -70,7 +70,7 @@ class Movie(Base):
     __tablename__ = "movies"
     id = Column(Integer, primary_key=True)
     title = Column(String(150), unique=True, nullable=False)
-    director = Column(String(150), nullable=True)
+    director = Column(String(150), nullable=True,default='Unknown')
     status = Column(Enum(WatchStatus), nullable=False)
 
 
@@ -87,7 +87,7 @@ class TVShow(Base):
     __tablename__ = "tvshows"
     id = Column(Integer, primary_key=True)
     title = Column(String(150), unique=True, nullable=False)
-    director = Column(String(150), nullable=True)
+    director = Column(String(150), nullable=True, default='Unknown')
     status = Column(Enum(WatchStatus), nullable=False)
 
 
