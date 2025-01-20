@@ -16,8 +16,7 @@ Name the APIs as follows:
     TMDB_API_KEY = 
     GOOGLE_BOOKS_API_KEY = 
     OPENAI_API_KEY=
-
-
+3. The Design rationale has more details and can be found in the docs folder of the repository
 
 
 Author Details:
