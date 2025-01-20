@@ -9,9 +9,8 @@ Main script for managing media (books, movies, TV shows) including
 searching, recommending, adding, viewing, and displaying upcoming releases.
 """
 
-from models import session, Book, Movie, TVShow, BookStatus, WatchStatus
+from models import *
 from constants import *
-import os
 from search import *
 from recommendations import *
 from upcoming import display_upcoming_releases

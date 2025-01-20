@@ -1,5 +1,4 @@
 from models import *
-from main import session
 from constants import *
 
 def view_movie_tv():

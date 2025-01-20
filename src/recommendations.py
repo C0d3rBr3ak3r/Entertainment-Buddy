@@ -1,7 +1,6 @@
 from openai import OpenAI
-from models import Book, Movie, TVShow
+from models import *
 from APIs import OPENAI_API_KEY
-from main import session
 
 client = OpenAI(
     api_key=OPENAI_API_KEY

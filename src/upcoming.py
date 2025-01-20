@@ -1,5 +1,4 @@
 import requests
-from datetime import datetime
 from APIs import TMDB_API_KEY, GOOGLE_BOOKS_API_KEY
 
 # API Configuration

@@ -1,7 +1,5 @@
 from models import *
-from main import session
 from constants import *
-import sqlite3
 
 def check_empty(user_input):
     if user_input=="":

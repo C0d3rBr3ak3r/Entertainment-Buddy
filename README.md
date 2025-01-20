@@ -7,6 +7,17 @@ Requirements: (pip install)
 3. openai
 4. requests
 
+Instructions for use:
+1. Install the mentioned requirements
+2. Create a .py file named APIs which has my APIs for Google Books,OpenAI and TMDB,
+I can't upload my APIs in the github repository due to security restrictions, so I can provide them to you seperately 
+if you dont want to waste time creating APIs or copying them 
+Name the APIs as follows:
+    TMDB_API_KEY = 
+    GOOGLE_BOOKS_API_KEY = 
+    OPENAI_API_KEY=
+
+
 
 
 Author Details:
