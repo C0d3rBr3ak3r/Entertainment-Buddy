@@ -1,5 +1,5 @@
 import requests
-from APIs import TMDB_API_KEY, GOOGLE_BOOKS_API_KEY
+from src.APIs import TMDB_API_KEY, GOOGLE_BOOKS_API_KEY
 
 # API Configuration
 TMDB_API_KEY = TMDB_API_KEY

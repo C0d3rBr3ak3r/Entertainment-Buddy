@@ -1,5 +1,5 @@
-from models import *
-from constants import *
+from src.models import *
+from src.constants import *
 
 def check_empty(user_input):
     if user_input=="":

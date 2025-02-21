@@ -1,5 +1,5 @@
-from models import *
-from constants import *
+from src.models import *
+from src.constants import *
 
 def view_movie_tv():
     """

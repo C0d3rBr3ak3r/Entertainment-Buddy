@@ -1,6 +1,6 @@
 from openai import OpenAI
-from models import *
-from APIs import OPENAI_API_KEY
+from src.models import *
+from src.APIs import OPENAI_API_KEY
 
 client = OpenAI(
     api_key=OPENAI_API_KEY

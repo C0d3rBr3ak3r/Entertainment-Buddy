@@ -1,22 +1,21 @@
 """
 File: main.py
 Author: Daksh Malhotra
-Student ID- 34214933
-Date Modified: 20 January 2025
+Date Modified: 20 March 2024
 
 Description: 
 Main script for managing media (books, movies, TV shows) including 
 searching, recommending, adding, viewing, and displaying upcoming releases.
 """
 
-from models import *
-from constants import *
-from search import *
-from recommendations import *
-from upcoming import display_upcoming_releases
-from surprise import surprise_me
-from add import *
-from view import *
+from src.models import *
+from src.constants import *
+from src.search import *
+from src.recommendations import *
+from src.upcoming import display_upcoming_releases
+from src.surprise import surprise_me
+from src.add import *
+from src.view import *
 
 
 def recommend():
